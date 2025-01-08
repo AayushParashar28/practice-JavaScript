@@ -1,8 +1,8 @@
-
+// A function along with its lexical scope form a closure
 
 function x() {
     var s = 8
-    function y(){
+    function y() {
         console.log(s);
     }
     y();
@@ -10,22 +10,28 @@ function x() {
 x();
 
 
-function z(){
+function z() {
     var y = 6
-    return function x(){
+    return function x() {
         console.log(y);
     }
 }
 
 var a = z()
-console.log(a)
+a();
 
 
 
-function z(){
-    for(var i = 0 ; i < 10 ; i++){
-        setTimeout(function(){
-            console.log(i);
-        },i*1000)
+function s() {
+    for (var i = 0; i < 10; i++) {
+        function r(i) { 
+            //calling function r with argument i because here i is in var without this function i will direclty print the i.
+            setTimeout(function () {
+                console.log(i);
+            }, i * 1000)
+        }
+        r(i);
     }
 }
+
+s()
