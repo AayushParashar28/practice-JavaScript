@@ -1,7 +1,14 @@
-function x(){
-    var a = 10;
-    var b = 20;
-    var c = a + b;
-    return c
-}
-console.log(x());
+const cart = ["shoes", "pants", "kurtas"]
+
+createOrder(cart , function(orderID){
+    console.log("Order created with ID: ", orderID);
+    proceedtoPayment(OrderID);
+})
+
+
+
+const promise = createOrder(cart)
+
+promise.then(function(orderID){
+    proceedtoPayment(orderID)
+})
